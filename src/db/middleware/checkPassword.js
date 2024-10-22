@@ -4,8 +4,6 @@ const addUser = require("../controllers/addUser");
 const hashPassword = require("../middleware/hashPassword");
 const listAllUsers = require("../controllers/listAllUsers");
 const User = require("../models/userModel")
-userRouter.post("/addUser", hashPassword ,addUser);
-userRouter.get("/listAllUsers", checkPassword, listAllUsers);
 const { Op } = require('sequelize');
  
 module.exports = userRouter;
