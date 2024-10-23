@@ -11,6 +11,12 @@ module.exports = userRouter;
 const bcrypt = require("bcrypt");
 async function checkPassword(req,res,next) {
     try {
+        if (!req.body.email) {
+            req.body.email= "";
+        }
+        if(!req.body.username){
+            req.body.username = "";
+        }
         const userDetails = await User.findOne({
             where: {[Op.or]: [{email: req.body.email}, {username: req.body.username}]}}
         )
